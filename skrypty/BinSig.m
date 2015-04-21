@@ -21,5 +21,23 @@ classdef  BinSig
             fprintf(obj.fileID_m, '%i\n',obj.signal_m);%zapis do pliku
             fclose(obj.fileID_m);
         end
+        %funkcja rysuj¹ca wykres sygna³u binarnego, pobiera obiekt
+        %niniejszej klasy jako parametr
+        function PlotBinSig(obj,m,n,p)
+            y=obj.signal_m;
+            y=y(:);
+            figure;
+            y=[y';y'];
+            y=y(:);
+            x=1:numel(y)/2;
+            x=[x;x];
+            x=x(:);
+            x(1)=[];
+            y(end)=[];
+            subplot(m,n,p);
+            plot(x,y);
+            xlim([x(1) x(end)]);
+            title('Sygna³ binarny');
+        end
     end
 end
