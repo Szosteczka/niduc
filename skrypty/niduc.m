@@ -33,3 +33,9 @@ end
 BER = Errors/length(SignalData1);
 
 display(BER);
+
+QPSKSignal = NPSK('sygnal.txt', 4, 30, 30);
+
+QPSKSignalNoisy = NPSK('sygnal.txt', 4, 15, 15);
+
+OPSKSignal = NPSK('sygnal.txt', 8, 30, 30);
