@@ -1,0 +1,3 @@
+NPSK.m - to klasa obs³uguj¹ca ca³¹ symulacjê 
+niduc.m - wykonuje metody i plotuje wyniki
+PlotErrors.m - robi obliczenia dla ró¿nych wartoœci szumu i rysuje ten wykres 3d
