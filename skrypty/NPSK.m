@@ -47,10 +47,19 @@ classdef NPSK
         function PlotBitSignal(obj,m,n,p)
             
             y=obj.signal_m;
+            y=y(:);
             figure;
+            y=[y';y'];
+            y=y(:);
+            x=1:numel(y)/2;
+            x=[x;x];
+            x=x(:);
+            x(1)=[];
+            y(end)=[];
             subplot(m,n,p);
             stem(y);
-            title('Bity wys³ane');
+            xlim([x(1) x(end)]);
+            title('Sygna³ binarny');
         end
         
         
@@ -134,12 +143,12 @@ classdef NPSK
         
         function obj = Demodulate(obj, filename)
             obj.recovpsk = pskdemod(obj.rxpsk,obj.variant_m);
-            
+
             numerrs_psk = symerr(obj.signal_m,obj.recovpsk);
             obj.BER = numerrs_psk/length(obj.signal_m);
             if ~strcmp(filename,'')
                 SaveFileID = fopen(filename, 'w');
-                fprintf(SaveFileID, '%i\n',obj.transmittedSignal_m);%zapis do pliku
+                fprintf(SaveFileID, '%i\n',obj.recovpsk);%zapis do pliku
                 fclose(SaveFileID);
             end
             
@@ -148,9 +157,18 @@ classdef NPSK
         function PlotNPSKDemodulator(obj, m, n, p) 
             
             y=obj.recovpsk;
+            y=y(:);
+            y=[y';y'];
+            y=y(:);
+            x=1:numel(y)/2;
+            x=[x;x];
+            x=x(:);
+            x(1)=[];
+            y(end)=[];
             subplot(m,n,p);
             stem(y);
-            title('Bity odebrane');
+            xlim([x(1) x(end)]);
+            title('Sygna³ binarny odebrany');
         end
        
         function PlotNPSKnoise(obj) 
