@@ -47,19 +47,10 @@ classdef NPSK
         function PlotBitSignal(obj,m,n,p)
             
             y=obj.signal_m;
-            y=y(:);
             figure;
-            y=[y';y'];
-            y=y(:);
-            x=1:numel(y)/2;
-            x=[x;x];
-            x=x(:);
-            x(1)=[];
-            y(end)=[];
             subplot(m,n,p);
             stem(y);
-            xlim([x(1) x(end)]);
-            title('Sygna³ binarny');
+            title('Bity wys³ane');
         end
         
         
@@ -157,18 +148,9 @@ classdef NPSK
         function PlotNPSKDemodulator(obj, m, n, p) 
             
             y=obj.recovpsk;
-            y=y(:);
-            y=[y';y'];
-            y=y(:);
-            x=1:numel(y)/2;
-            x=[x;x];
-            x=x(:);
-            x(1)=[];
-            y(end)=[];
             subplot(m,n,p);
             stem(y);
-            xlim([x(1) x(end)]);
-            title('Sygna³ binarny odebrany');
+            title('Bity odebrane');
         end
        
         function PlotNPSKnoise(obj) 

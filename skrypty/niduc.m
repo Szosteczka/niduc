@@ -1,11 +1,11 @@
 clc;
 clear all;
 
-Variant = 8;
+Variant = 16;
 Amplitude = 1;
 SampleRate = 50;
-N = 256;
-ampNoise = .05;
+N = 1000;
+ampNoise = .04;
 phNoise = .01;
 
 
